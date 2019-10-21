@@ -17,7 +17,7 @@ def gitClone() {
    def request = libraryResource 'data.json'
    def jsonSlurper = new JsonSlurper() 
    def resultJson = jsonSlurper.parseText(request)
-   def url = ansible.url[0]
+   def url = resultJson.ansible.url
    println('url')
  
    def shellCommand = "git clone ${url}"
